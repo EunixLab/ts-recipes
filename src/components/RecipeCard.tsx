@@ -10,14 +10,18 @@ type Props = {
 import { Link } from "react-router-dom";
 
 export default function RecipeCard({ recipe }: Props) {
+  const imageSrc = recipe.imgUrl?.trim()
+    ? import.meta.env.BASE_URL + recipe.imgUrl
+    : import.meta.env.BASE_URL + "images/sample.png";
   return (
     <Link to={`/detail/${recipe.id}`} className="recipe-card">
       <div className="card-img">
-        <img src={import.meta.env.BASE_URL + recipe.imgUrl || "/images/default.png"} alt={recipe.title} />
+        <img src={imageSrc} alt={recipe.title} />
+
+        <h3>{recipe.title}</h3>
       </div>
 
       <div className="card-body">
-        <h3>{recipe.title}</h3>
         <p>{recipe.chef}</p>
       </div>
     </Link>

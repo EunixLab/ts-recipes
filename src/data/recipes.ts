@@ -2740,7 +2740,7 @@ export const recipes: Recipe[] = [
     }
     , {
         id: "dish80",
-        imgUrl: "/images/sample.png",
+        imgUrl: "",
         videoUrl: "https://www.instagram.com/reel/CuVe8QhOVuZ/?utm_source=ig_embed&amp;utm_campaign=loading",
         title: "비빔장",
         chef: "day_momtable",

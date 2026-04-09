@@ -15,6 +15,7 @@ export default defineConfig({
       scss: {
         additionalData: `@use "@/assets/scss/abstracts" as *;`
       }
-    }
-  }
+    },
+    devSourcemap: true,
+  },
 });
