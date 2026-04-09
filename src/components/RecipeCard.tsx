@@ -13,7 +13,7 @@ export default function RecipeCard({ recipe }: Props) {
   return (
     <Link to={`/detail/${recipe.id}`} className="recipe-card">
       <div className="card-img">
-        <img src={recipe.imgUrl || "/images/default.png"} alt={recipe.title} />
+        <img src={import.meta.env.BASE_URL + recipe.imgUrl || "/images/default.png"} alt={recipe.title} />
       </div>
 
       <div className="card-body">
