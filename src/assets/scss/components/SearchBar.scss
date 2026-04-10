@@ -1,0 +1,30 @@
+.search-wrap {
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    width: calc(100% - 200px);
+    .search {
+        width: 100%;
+        padding: 12px 36px 12px 14px; // 오른쪽 공간 확보
+        border-radius: 12px;
+        border: 1px solid #eee;
+        background: #fafafa;
+    }
+    
+    .search__clear {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        
+        background: none;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        color: #aaa;
+        
+        &:hover {
+            color: #ff6b35;
+        }
+    }
+}

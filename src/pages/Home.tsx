@@ -47,8 +47,11 @@ export default function Home() {
   });
 
   return (
-    <div>
-      <SearchBar onSearch={setKeyword} />
+    <div className="recipes-wrap">
+      <header>
+        <h1>Recipes</h1>
+        <SearchBar onSearch={setKeyword} />
+      </header>
 
       <FilterBar
         filter={filter}
@@ -58,11 +61,11 @@ export default function Home() {
         onReset={resetFilter}
       />
 
-      <div className="recipe-list">
+      <section className="recipe-list">
         {filteredRecipes.map((item) => (
           <RecipeCard key={item.id} recipe={item} />
         ))}
-      </div>
+      </section>
     </div>
   );
 }

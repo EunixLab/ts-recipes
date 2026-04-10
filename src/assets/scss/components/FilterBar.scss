@@ -1,0 +1,75 @@
+.filter {
+    background: #fff;
+    padding: 16px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    &__reset {
+        font-size: 12px;
+        color: #999;
+        background: none;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            color: #ff6b35;
+        }
+    }
+
+    &__group {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+        margin-bottom: 14px;
+        padding-left: 50px;
+    }
+    &__label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 50px;
+        height: 100%;
+        font-size: 12px;
+        color: #999;
+        margin-bottom: 6px;
+    }
+
+    &__chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    &__chip {
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: #f5f5f5;
+        border: none;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+        background: #ffece6;
+        }
+
+        &.active {
+        background: #ff6b35;
+        color: #fff;
+        font-weight: 500;
+        }
+    }
+}

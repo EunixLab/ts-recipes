@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { recipes } from "@/data/recipes";
 
 export default function Detail() {
     const { id } = useParams();
+    const navigate = useNavigate();
 
     const recipe = recipes.find((r) => r.id === id);
 
@@ -13,43 +15,45 @@ export default function Detail() {
 
     return (
         <div className="recipe-detail">
-            <div className="imgBox">
-                <h1>{recipe.title}</h1>
-                <img src={imageSrc} alt={recipe.title} />
-                <p>{recipe.chef}</p>
+            <div className="detail__hero">
+                <img src={imageSrc} />
+                <div className="detail__overlay">
+                    <h1>{recipe.title}</h1>
+                    <p>{recipe.chef}</p>
+                </div>
             </div>
 
-            <div className="detail__content">
-                <section className="detail__ingredients">
-                    <h3>재료</h3>
-                    <ul className="ingredients">
-                        {recipe.ingredients.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
+            
+            <section className="detail__section">
+                <h2>재료</h2>
+                <ul className="ingredients">
+                    {recipe.ingredients.map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
+            </section>
 
-                </section>
+            <section className="detail__section">
+                <h2>양념</h2>
+                <ul className="seasonings">
+                    {recipe.seasonings?.map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
+            </section>
 
-                <section className="detail__seasonings">
-                    <h3>양념</h3>
-                    <ul className="seasonings">
-                        {recipe.seasonings?.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ul>
-                </section>
+            <section className="detail__section">
+                <h2>조리 방법</h2>
+                {recipe.steps.map((step, idx) => (
+                    <div key={idx} className="step">
+                        <span>{idx + 1}</span>
+                        <p>{step}</p>
+                    </div>
+                ))}
 
-                <section className="detail__steps">
-                    <h3>조리 방법</h3>
-                    <ol className="steps">
-                        {recipe.steps.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))}
-                    </ol>
-                </section>
-            </div>
+            </section>
 
-            <button className="detail__back">← 뒤로가기</button>
+            <button type="button" className="detail__back" onClick={() => navigate(-1)}>← 뒤로가기</button>
 
         </div>
 
