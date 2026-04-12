@@ -1,15 +1,18 @@
 // data/recipes.ts
 import type { Recipe } from "../types/recipe";
 
+const createRecipe = (data: Omit<Recipe, "id">): Recipe => ({
+    id: crypto.randomUUID(),
+    ...data,
+});
+
 export const recipes: Recipe[] = [
-    {
-        id: "dish1",
-        imgUrl: "/images/cucumberRadishKimchi.png",
-        videoUrl: "https://www.youtube.com/embed/4SFJJ0nkJy4",
+    createRecipe({
         title: "오이 깍두기",
         chef: "마카롱여사",
         category: "깍두기",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/cucumberRadishKimchi.png",
+        videoUrl: "https://www.youtube.com/watch?v=4SFJJ0nkJy4",
         sourceUrl: "https://www.instagram.com/reel/Crmai5dtlnN/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
         ingredients: [
             "오이 10개",
@@ -38,15 +41,13 @@ export const recipes: Recipe[] = [
             "간 양념에 고춧가루, 다진 마늘을 넣고 물기 뺀 오이, 부추, 채 썬 당근, 채 썬 양파를 넣어 버무린다.",
             "마지막에 통깨를 뿌려 바로 먹어도 되고 한나절 실온 숙성 후 냉장 보관 후 먹어도 된다."
         ]
-    }
-    , {
-        id: "dish2",
-        imgUrl: "/images/threeCucumber1.png",
-        videoUrl: "https://www.youtube.com/embed/J2vm6oeYP7Q",
+    }),
+    createRecipe({
         title: "오이탕탕이",
         chef: "김가연→마카롱여사",
         category: "밑반찬",
-        typeList: "sideDished",
+        imgUrl: "/images/threeCucumber1.png",
+        videoUrl: "https://youtu.be/J2vm6oeYP7Q?si=gYPH4MYfEWKbm3j4",
         sourceUrl: "https://www.instagram.com/reel/CsUkzTUNUUT/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA===",
         ingredients: [
             "오이 2개",
@@ -61,15 +62,13 @@ export const recipes: Recipe[] = [
             "다진 마늘 2t, 소금 1t, 설탕 2t, 식초 2t, 통깨 1T 넣어 버무린다.",
             "냉장고에 넣어 차게 하면 더 맛있다."
         ]
-    }
-    , {
-        id: "dish3",
-        imgUrl: "/images/threeCucumber2.png",
-        videoUrl: "https://www.youtube.com/embed/J2vm6oeYP7Q?start=47",
+    }),
+    createRecipe({
         title: "오이무침",
         chef: "조샘→마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/threeCucumber2.png",
+        videoUrl: "https://www.youtube.com/watch?v=J2vm6oeYP7Q",
         sourceUrl: "https://www.instagram.com/reel/CsUkzTUNUUT/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
         ingredients: [
             "다대기오이 2개(소금 2t / 설탕 2T / 식초 2T )"
@@ -88,15 +87,13 @@ export const recipes: Recipe[] = [
             "절인 오이는 씻지 말고 꼭 짠다.",
             "수분 제거한 오이에 마늘 1t, 파 1T, 고춧가루 1T, 참치액 0.5t, 간 깨 1T 마지막에 참기름 살짝 넣어 무친다."
         ]
-    }
-    , {
-        id: "dish4",
-        imgUrl: "/images/threeCucumber3.png",
-        videoUrl: "https://www.youtube.com/embed/J2vm6oeYP7Q?start=134",
+    }),
+    createRecipe({
         title: "초간단 오이냉국 [27461]",
         chef: "마카롱여사",
         category: "냉국",
-        typeList: "krSoup",
+        imgUrl: "/images/threeCucumber3.png",
+        videoUrl: "https://www.youtube.com/watch?v=J2vm6oeYP7Q",
         sourceUrl: "https://www.instagram.com/reel/CsUkzTUNUUT/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
         ingredients: [
             "오이 2개"
@@ -114,15 +111,13 @@ export const recipes: Recipe[] = [
             "취향에 따라 청양고추 잘게 썰어 넣어 준다.",
             "얼음 띄워 차게 냉국 먹는다.",
     ]
-    }
-    , {
-        id: "dish5",
-        imgUrl: "/images/braisedCutlassfish.png",
-        videoUrl: "https://www.youtube.com/embed/KPKSZeUmSg0",
+    }),
+    createRecipe({
         title: "갈치조림",
         chef: "마카롱여사",
-        typeList: "krstew",
         category: "조림",
+        imgUrl: "/images/braisedCutlassfish.png",
+        videoUrl: "https://www.youtube.com/watch?v=KPKSZeUmSg0",
         sourceUrl: "https://www.instagram.com/reel/CsIuZHWtccW/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
         ingredients: [
             "갈치 큰 거 3토막",
@@ -154,15 +149,13 @@ export const recipes: Recipe[] = [
             "감자와 고기가 익으면 냄비 뚜껑을 열고 센 불에 끓여 비린내를 날려준다.",
             "국물을 위로 자작자작 떠 올려 주면서 간이 잘 스며들게 하면 된다."
         ]
-    }
-    , {
-        id: "dish6",
-        imgUrl: "/images/seasonedCrab.png",
-        videoUrl: "https://www.youtube.com/embed/s0o9o7327_U",
+    }),
+    createRecipe({
         title: "양념꽃게 무침",
         chef: "마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/seasonedCrab.png",
+        videoUrl: "https://www.youtube.com/watch?v=s0o9o7327_U",
         sourceUrl: "https://www.instagram.com/reel/CqeWLSQMRzi/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
         ingredients: [
             "선동 꽃게 10마리(2kg)",
@@ -199,15 +192,13 @@ export const recipes: Recipe[] = [
             "양념장을 넣어 섞어 주면 완성. 양파 매운 고추 넣어도 좋다.",
             "양념에 버무려 통에 담아 냉장고에서 1시간 정도 후에 먹는다."
         ]
-    }
-    , {
-        id: "dish7",
-        imgUrl: "/images/spicyGrilledChicken.png",
-        videoUrl: "https://www.youtube.com/embed/_shKymtRGTQ",
+    }),
+    createRecipe({
         title: "닭갈비",
         chef: "마카롱여사",
         category: "메인반찬",
-        typeList: "mainSideDished",
+        imgUrl: "/images/spicyGrilledChicken.png",
+        videoUrl: "https://www.youtube.com/watch?v=_shKymtRGTQ",
         sourceUrl: "https://www.instagram.com/reel/CqJfsoQtIXZ/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
         ingredients: [
             "닭정육 500g",
@@ -244,15 +235,13 @@ export const recipes: Recipe[] = [
             "고기는 익으면 가위로 잘라 준다. 센 불에 볶지 말고 중불 정도에서 뭉근하게 골고루 볶아 준다.",
             "떡 또는 치즈는 취향껏 넣어 주고 깻잎은 마지막 단계에서 넣으면 끝."
         ]
-    }
-    , {
-        id: "dish8",
-        imgUrl: "/images/stirFriedKoreanSausage.png",
-        videoUrl: "https://www.youtube.com/embed/D0hQ8Vj55Hk",
+    }),
+    createRecipe({
         title: "순대볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "mainSideDished",
+        imgUrl: "/images/stirFriedKoreanSausage.png",
+        videoUrl: "https://www.youtube.com/watch?v=D0hQ8Vj55Hk",
         sourceUrl: "https://www.instagram.com/reel/CqCzlhtp3sE/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
         ingredients: [
             "순대 500g",
@@ -288,15 +277,13 @@ export const recipes: Recipe[] = [
             "양념에 섞은 순대를 가위로 잘게 잘라 볶아 준다.",
             "마지막 깻잎을 올려 섞어 주고 통깨를 뿌려 주면 완성"
         ]
-    }
-    , {
-        id: "dish9",
-        imgUrl: "/images/greenOnionKimchi.png",
-        videoUrl: "https://www.youtube.com/embed/WIrG9FzlVsk",
+    }),
+    createRecipe({
         title: "쪽파김치",
         chef: "마카롱여사",
         category: "김치",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/greenOnionKimchi.png",
+        videoUrl: "https://www.youtube.com/watch?v=WIrG9FzlVsk",
         sourceUrl: "https://www.instagram.com/reel/CpHx47iLRZR/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
         ingredients: [
             "쪽파 2kg"
@@ -321,15 +308,13 @@ export const recipes: Recipe[] = [
             "고춧가루 먼저 비빈 다음 양념을 비벼주면 된다.",
             "마지막 통깨 듬뿍 넣어 통에 담아 먹으면 된다. 바로 먹어도 굿 익혀 먹어도 굿!!"
         ]
-    }
-    , {
-        id: "dish10",
-        imgUrl: "/images/cucumberCrabColdSalad.png",
-        videoUrl: "https://www.youtube.com/embed/xEzkldngttU",
+    }),
+    createRecipe({
         title: "오이 맛살 냉채",
         chef: "마카롱여사",
         category: "냉채",
-        typeList: "salad",
+        imgUrl: "/images/cucumberCrabColdSalad.png",
+        videoUrl: "https://www.youtube.com/watch?v=xEzkldngttU",
         sourceUrl: "",
         ingredients: [
             "오이 2개",
@@ -351,15 +336,13 @@ export const recipes: Recipe[] = [
             "볼에 넣어 취향에 따라 고추기름 1T 추가해서 버무려 준다.",
             "마지막 통깨 뿌려 먹으면 된다."
         ]
-    }
-    , {
-        id: "dish11",
-        imgUrl: "/images/cucumberSandwich.png",
-        videoUrl: "https://www.youtube.com/embed/xEzkldngttU?start=104",
+    }),
+    createRecipe({
         title: "오이샌드위치",
         chef: "마카롱여사",
         category: "샌드위치",
-        typeList: "bread",
+        imgUrl: "/images/cucumberSandwich.png",
+        videoUrl: "https://www.youtube.com/watch?v=xEzkldngttU",
         sourceUrl: "",
         ingredients: [
             "오이 2개"
@@ -373,15 +356,13 @@ export const recipes: Recipe[] = [
             "소금에 절인 오이는 씻지 말고 지그시 짜주고 마요네즈 4T에 버무려 준다.",
             "버터 바른 빵 위에 넉넉하게 올려 먹으면 씹는 식감과 향긋한 오이 고소한 맛이 느껴진다."
         ]
-    }
-    , {
-        id: "dish12",
-        imgUrl: "/images/pickledGarlic.png",
-        videoUrl: "https://www.youtube.com/embed/zoOoYKs2VKk",
+    }),
+    createRecipe({
         title: "햇마늘 장아찌 레시피",
         chef: "마카롱여사",
         category: "장아찌",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/pickledGarlic.png",
+        videoUrl: "https://www.youtube.com/watch?v=zoOoYKs2VKk",
         sourceUrl: "",
         ingredients: [
             "마늘 반접(50개기준)"
@@ -408,15 +389,13 @@ export const recipes: Recipe[] = [
             "팔팔 끓으면 뜨거운 장물을 마늘에 붓고 뜨거운 상태에서 뚜껑을 닫아 한 달간 실온 보관해 준다.",
             "검정 비닐로 빛을 차단해 준다. 마늘의 녹변 현상을 방지한다."
         ]
-    }
-    , {
-        id: "dish13",
-        imgUrl: "/images/cucumbersPickled.png",
-        videoUrl: "https://www.youtube.com/embed/kHnDmmczUes",
+    }),
+    createRecipe({
         title: "물 없이 만드는 오이지 ",
         chef: "이보은 샘→마카롱여사",
         category: "장아찌",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/cucumbersPickled.png",
+        videoUrl: "https://www.youtube.com/watch?v=kHnDmmczUes",
         sourceUrl: "",
         ingredients: [
             "백오이 50개"
@@ -437,15 +416,13 @@ export const recipes: Recipe[] = [
             "무거운 걸로 눌러주면 푹 잠겨 쪼글쪼글해 진다. 10일 정도 실온에 두고 익혀 준다.",
             "10일 정도 지나 오이만 건져 통에 담아 냉장 보관 해놓고 먹으면 된다."
         ]
-    }
-    , {
-        id: "dish14",
-        imgUrl: "/images/cucumbersPickledSeasoned-.png",
-        videoUrl: "https://www.youtube.com/embed/kHnDmmczUes?start=102",
+    }),
+    createRecipe({
         title: "오이지 무침 ",
         chef: "마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/cucumbersPickledSeasoned-.png",
+        videoUrl: "https://www.youtube.com/watch?v=kHnDmmczUes",
         sourceUrl: "",
         ingredients: [
             "오이지 5개"
@@ -462,15 +439,13 @@ export const recipes: Recipe[] = [
             "오이는 썰어 물기를 지그시 꼭 짜주면 더 오도독하니 맛있다.",
             "신맛 싫은 분은 올리고당 1T 넣으면 좋다."
         ]
-    }
-    , {
-        id: "dish15",
-        imgUrl: "/images/greenPapayaPickled.png",
-        videoUrl: "https://www.youtube.com/embed/E7XG6iL2RP8",
+    }),
+    createRecipe({
         title: "그린파파야 장아찌",
         chef: "마카롱여사",
         category: "장아찌",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/greenPapayaPickled.png",
+        videoUrl: "https://www.youtube.com/watch?v=E7XG6iL2RP8",
         sourceUrl: "",
         ingredients: [
             "그린파파야 큰 거 4개"
@@ -494,15 +469,13 @@ export const recipes: Recipe[] = [
             "간장 물을 팔팔 끓여 뜨거운 상태로 부어 줍니다. 수분이 많은 장아찌는 뜨거운 걸 부어주면 더 아삭하다.",
             "식으면 냉장고에 넣어 하루 지나 먹는다."
         ]
-    }
-    , {
-    id: "dish16",
-        imgUrl: "/images/somtamSalad.png",
-        videoUrl: "https://www.youtube.com/embed/E7XG6iL2RP8?start=102?start=90",
+    }),
+    createRecipe({
         title: "쏨땀 샐러드",
         chef: "마카롱여사",
         category: "샐러드",
-        typeList: "salad",
+        imgUrl: "/images/somtamSalad.png",
+        videoUrl: "https://www.youtube.com/watch?v=E7XG6iL2RP8",
         sourceUrl: "",
         ingredients: [
             "파파야 400~500g",
@@ -530,15 +503,13 @@ export const recipes: Recipe[] = [
             "고수와 다진 땅콩 넣어 버무려 준다. 고수는 취향껏",
             "새콤달콤 향긋하면서 식감이 예술이다."
         ]
-    }
-    , {
-        id: "dish17",
-        imgUrl: "/images/braisedDriedFilefishFillet.png",
-        videoUrl: "https://www.youtube.com/embed/MmsWmQCKYxE",
+    }),
+    createRecipe({
         title: "구운 쥐포조림",
         chef: "마카롱여사",
         category: "조림",
-        typeList: "sideDished",
+        imgUrl: "/images/braisedDriedFilefishFillet.png",
+        videoUrl: "https://www.youtube.com/watch?v=MmsWmQCKYxE",
         sourceUrl: "",
         ingredients: [
             "쥐포 300g"
@@ -562,15 +533,13 @@ export const recipes: Recipe[] = [
             "약불로 줄이고 양념에 쥐포를 볶아 준다.",
             "약불로 볶다가 양념이 스며들면 참기름 조금 통깨 뿌려 준다."
         ]
-    }
-    , {
-        id: "dish18",
-        imgUrl: "/images/braisedEggs.png",
-        videoUrl: "https://www.youtube.com/embed/BbFDtk3IdmE",
+    }),
+    createRecipe({
         title: "달걀장",
         chef: "마카롱여사",
         category: "장조림",
-        typeList: "sideDished",
+        imgUrl: "/images/braisedEggs.png",
+        videoUrl: "https://www.youtube.com/watch?v=BbFDtk3IdmE",
         sourceUrl: "",
         ingredients: [
             "달걀 7개",
@@ -598,15 +567,13 @@ export const recipes: Recipe[] = [
             "밥 위에 간장 양념 조금 하고 참기름 뿌려 먹으면 아주 맛있다.",
             "남은 간장 물은 버섯이나 감자 볶아 먹는다. 기름 조금 넣어 버섯을 볶다가 간장 넣고 물엿 조금 넣는다."
         ]
-    }
-    , {
-        id: "dish19",
-        imgUrl: "/images/porkBellyGrilledRibs.png",
-        videoUrl: "https://www.youtube.com/embed/pFhhQKK1VHo",
+    }),
+    createRecipe({
         title: "대패삼겹 숯불갈비맛",
         chef: "쭈야공님→마카롱여사",
         category: "메인반찬",
-        typeList: "mainSideDished",
+        imgUrl: "/images/porkBellyGrilledRibs.png",
+        videoUrl: "https://www.youtube.com/watch?v=pFhhQKK1VHo",
         sourceUrl: "",
         ingredients: [
             "냉동 대패삼겹살 600g",
@@ -633,15 +600,13 @@ export const recipes: Recipe[] = [
             "대패삼겹살이라 고기 기름이 많이 나온다. 팬을 기울여 기름을 제거한다.",
             "다양하게 쌈이랑 함께 먹는다."
         ]
-    }
-    , {
-        id: "dish20",
-        imgUrl: "/images/pickledShepherdsPurse.png",
-        videoUrl: "https://www.youtube.com/embed/fUtyixuH98g",
+    }),
+    createRecipe({
         title: "냉이장아찌",
         chef: "마카롱여사",
         category: "장아찌",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/pickledShepherdsPurse.png",
+        videoUrl: "https://www.youtube.com/watch?v=fUtyixuH98g",
         sourceUrl: "",
         ingredients: [
             "냉이 400~500g"
@@ -660,15 +625,13 @@ export const recipes: Recipe[] = [
             "물기 뺀 냉이에 베트남 고추 취향껏 넣어 준다. 10개 정도 부시고 뜨거운 장아찌 물을 부어 준다.",
             "밀폐용기에 담아 냉장 보관해 놓고 고기 또는 전이랑 같이 먹으면 끝내주게 맛이 좋다."
         ]
-    }
-    , {
-        id: "dish21",
-        imgUrl: "/images/waterParsleyBulgogiPancake.png",
-        videoUrl: "https://www.youtube.com/embed/fUtyixuH98g?start=70",
+    }),
+    createRecipe({
         title: "미나리 불고기전",
         chef: "마카롱여사",
         category: "전",
-        typeList: "pancake",
+        imgUrl: "/images/waterParsleyBulgogiPancake.png",
+        videoUrl: "https://www.youtube.com/watch?v=fUtyixuH98g",
         sourceUrl: "",
         ingredients: [
             "미라니 100g",
@@ -691,15 +654,13 @@ export const recipes: Recipe[] = [
             "팬을 달궈 넉넉한 기름을 넣고 얇게 펴 앞뒤로 노릇하게 익혀 준다. (얇게 펴서 익혀야 맛이 좋다)",
             "충분한 기름에 중불에 노릇하게 익혀 준다."
         ]
-    }
-    , {
-        id: "dish22",
-        imgUrl: "/images/braisedSpicyChicken.png",
-        videoUrl: "https://www.youtube.com/embed/HEwCSy-XQpw?start=70",
+    }),
+    createRecipe({
         title: "닭볶음탕",
         chef: "마카롱여사",
         category: "탕",
-        typeList: "krSoup",
+        imgUrl: "/images/braisedSpicyChicken.png",
+        videoUrl: "https://www.youtube.com/watch?v=HEwCSy-XQpw",
         sourceUrl: "",
         ingredients: [
             "토막 닭 800g",
@@ -731,15 +692,13 @@ export const recipes: Recipe[] = [
             "중간에 타지 않게 섞어준다. (중약불 중요) 뭉근하게 끓여야 수분이 충분하게 나온다.",
             "마지막에 물엿 1T 둘러주면 윤기 좌르르"
         ]
-    }
-    , {
-        id: "dish23",
-        imgUrl: "/images/Stir-friedDriedPollack.png",
-        videoUrl: "https://www.youtube.com/embed/WHbIaTGG_0k",
+    }),
+    createRecipe({
         title: "황태포볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/Stir-friedDriedPollack.png",
+        videoUrl: "https://www.youtube.com/watch?v=WHbIaTGG_0k",
         sourceUrl: "",
         ingredients: [
             "가늘게 찟은 황태포 80~100g",
@@ -764,15 +723,13 @@ export const recipes: Recipe[] = [
             "볶을 때는 탈 수 있으니, 약불에 볶아 준다.",
             "황태 건조 상태에 따라 양념이 부족하면 물엿과 미림 약간 추가해도 된다."
         ]
-    }
-    , {
-        id: "dish24",
-        imgUrl: "/images/beanSproutSeasonedScallions.png",
-        videoUrl: "https://www.youtube.com/embed/91OqBZnx_7w",
+    }),
+    createRecipe({
         title: "콩나물파채무침",
         chef: "마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/beanSproutSeasonedScallions.png",
+        videoUrl: "https://www.youtube.com/watch?v=91OqBZnx_7w",
         sourceUrl: "",
         ingredients: [
             "대파 25cm 길이 4개",
@@ -800,15 +757,13 @@ export const recipes: Recipe[] = [
             "고춧가루 1T, 양념장을 넣어 비벼 준다.",
             "마지막 통깨 뿌려 주면 완성. (새콤한 맛 좋아하면 식초 1T 정도 추가)"
         ]
-    }
-    , {
-        id: "dish024",
-        imgUrl: "/images/mushroomSeafoodPancake.png",
-        videoUrl: "https://www.youtube.com/embed/bR9njEt2H6o",
+    }),
+    createRecipe({
         title: "버섯해물전 ",
         chef: "마카롱여사",
         category: "전",
-        typeList: "pancake",
+        imgUrl: "/images/mushroomSeafoodPancake.png",
+        videoUrl: "https://www.youtube.com/watch?v=bR9njEt2H6o",
         sourceUrl: "",
         ingredients: [
             "느타리 200g",
@@ -834,15 +789,13 @@ export const recipes: Recipe[] = [
             "큰 볼에 재료를 모두 넣고 부침가루 5T, 전분 가루 1T, 달걀 5개, 소금 약간 넣어 재료를 섞어 준다.",
             "팬을 달궈 넉넉한 기름에 노릇하게 구워 준다."
         ]
-    }
-    , {
-        id: "dish25",
-        imgUrl: "/images/braisedRadish.png",
-        videoUrl: "https://www.youtube.com/embed/jbtF0njUcJ0",
+    }),
+    createRecipe({
         title: "무조림",
         chef: "마카롱여사",
         category: "조림",
-        typeList: "krSoup",
+        imgUrl: "/images/braisedRadish.png",
+        videoUrl: "https://www.youtube.com/watch?v=jbtF0njUcJ0",
         sourceUrl: "",
         ingredients: [
             "무 큰 거 한개 (1.3kg 정도)",
@@ -874,15 +827,13 @@ export const recipes: Recipe[] = [
             "뜸 들인 무에 양념장을 넣어 끓여 준다. 30분 정도",
             "끓기 시작하면 중불로 낮춰 30분 정도 뭉근하게 끓여주면 된다."
         ]
-    }
-    , {
-        id: "dish26",
-        imgUrl: "/images/stir-friedSquid.png",
-        videoUrl: "https://www.youtube.com/embed/-btAib3PVEU",
+    }),
+    createRecipe({
         title: "오징어볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "mainSideDished",
+        imgUrl: "/images/stir-friedSquid.png",
+        videoUrl: "https://www.youtube.com/watch?v=-btAib3PVEU",
         sourceUrl: "",
         ingredients: [
             "반건조 오징어 3마리",
@@ -912,15 +863,13 @@ export const recipes: Recipe[] = [
             "오징어가 어느 정도 익으면 양념장을 넣어 섞어 준다.",
             "마지막에 매운 고추 썰어 놓은 것을 넣고 통깨 뿌려 준다"
         ]
-    }
-    , {
-        id: "dish27",
-        imgUrl: "/images/steakBraisedTofu.png",
-        videoUrl: "https://www.youtube.com/embed/SWARvTrxBbQ",
+    }),
+    createRecipe({
         title: "스테이크 두부조림",
         chef: "마카롱여사",
         category: "조림",
-        typeList: "krstew",
+        imgUrl: "/images/steakBraisedTofu.png",
+        videoUrl: "https://www.youtube.com/watch?v=SWARvTrxBbQ",
         sourceUrl: "",
         ingredients: [
             "두부 한 모 380g",
@@ -956,15 +905,13 @@ export const recipes: Recipe[] = [
             "마지막에 통깨 뿌려 준다.",
             "밥 위에 두부조림을 올리고 스테이크용 고기를 올려 주면 된다."
         ]
-    }
-    , {
-        id: "dish28",
-        imgUrl: "/images/LALibs.png",
-        videoUrl: "https://www.youtube.com/embed/I_8LK-FlbeM",
+    }),
+    createRecipe({
         title: "LA 갈비",
         chef: "마카롱여사",
         category: "갈비",
-        typeList: "mainSideDished",
+        imgUrl: "/images/LALibs.png",
+        videoUrl: "https://www.youtube.com/watch?v=I_8LK-FlbeM",
         sourceUrl: "",
         ingredients: [
             "구이용 LA갈비  2kg"
@@ -995,15 +942,13 @@ export const recipes: Recipe[] = [
             "팬을 달궈 기름을 약간 발라 고기를 올려 굽다가 양념을 떠서 위에 올려 불 조절을 해 가면서 타지 않게 구워 준다.",
             "다 익으면 가위로 잘라 준다."
         ]
-    }
-    , {
-        id: "dish028",
-        imgUrl: "/images/riceCakeSkewer.png",
-        videoUrl: "https://www.youtube.com/embed/SDt8I0V7BdY",
+    }),
+    createRecipe({
         title: "떡꼬치 소스",
         chef: "마카롱여사",
         category: "소스",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/riceCakeSkewer.png",
+        videoUrl: "https://www.youtube.com/watch?v=SDt8I0V7BdY",
         sourceUrl: "",
         ingredients: [
             "가래떡"
@@ -1027,15 +972,13 @@ export const recipes: Recipe[] = [
             "나무젓가락이나 꼬챙이에 끼워 소스 바랄 약불에 지져 준다.",
             "가위로 옆면에 칼집을 재주면 양념이 들어가고 한입씩 베어먹기 좋다."
         ]
-    }
-    , {
-        id: "dish29",
-        imgUrl: "/images/citronWhiteRadishPickle.png",
-        videoUrl: "https://www.youtube.com/embed/BkgrXgJVAXk",
+    }),
+    createRecipe({
         title: "유자향 무피클",
         chef: "마카롱여사",
         category: "피클",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/citronWhiteRadishPickle.png",
+        videoUrl: "https://www.youtube.com/watch?v=BkgrXgJVAXk",
         sourceUrl: "",
         ingredients: [
             "무 한 개 (1.3kg 정도)",
@@ -1055,15 +998,13 @@ export const recipes: Recipe[] = [
             "냄비에 물 500ml, 식초 350ml, 설탕 350g, 천일염 1T 넣어 끓여 준다.",
             "팔팔 끓인 피클 물을 무에 부어 12시간 정도 냉장 보관 후 먹는다."
         ]
-    }
-    , {
-        id: "dish30",
-        imgUrl: "/images/jangjorim.png",
-        videoUrl: "https://www.youtube.com/embed/j4VHEjTcR_k",
+    }),
+    createRecipe({
         title: "소고기 장조림",
         chef: "마카롱여사",
         category: "장조림",
-        typeList: "sideDished",
+        imgUrl: "/images/jangjorim.png",
+        videoUrl: "https://www.youtube.com/watch?v=j4VHEjTcR_k",
         sourceUrl: "",
         ingredients: [
             "소고기(홍두깨, 양지, 사태 모두 가능) 600g~1kg",
@@ -1100,15 +1041,13 @@ export const recipes: Recipe[] = [
             "국물 자작하게 만들어 밥 비벼 먹어도 아주 좋다.",
             "꽈리고추, 알 마늘 20알 정도 넣어 10분 정도 끓여 주면 완성"
         ]
-    }
-    , {
-        id: "dish31",
-        imgUrl: "/images/stir-friedBeanSprout.png",
-        videoUrl: "https://www.youtube.com/embed/KuORt1cH7eM",
+    }),
+    createRecipe({
         title: "콩나물 볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/stir-friedBeanSprout.png",
+        videoUrl: "https://www.youtube.com/watch?v=KuORt1cH7eM",
         sourceUrl: "",
         ingredients: [
             "콩나물 2봉지 600g",
@@ -1137,15 +1076,13 @@ export const recipes: Recipe[] = [
             "참기름 또는 들기름 1T 넣어 준다.",
             "마지막에 통깨 뿌려 주면 된다."
         ]
-    }
-    , {
-        id: "dish32",
-        imgUrl: "/images/riceWithZucchini.png",
-        videoUrl: "https://www.youtube.com/embed/CBRElNhEV1w",
+    }),
+    createRecipe({
         title: "애호박덮밥",
         chef: "마카롱여사",
         category: "덮밥",
-        typeList: "ricePorridgeRiceCake",
+        imgUrl: "/images/riceWithZucchini.png",
+        videoUrl: "https://www.youtube.com/watch?v=CBRElNhEV1w",
         sourceUrl: "",
         ingredients: [
             "애호박 1개",
@@ -1174,15 +1111,13 @@ export const recipes: Recipe[] = [
             "익으면 꺼내고 그 팬에 양념한 고기를 수분이 날아가게 볶아 준다.",
             "고기가 익으면 미리 볶은 애호박을 넣고 청양고추 물엿 또는 올리고당 2T, 통깨 넣어 주면 완성"
         ]
-    }
-    , {
-        id: "dish33",
-        imgUrl: "/images/DriedSquidChiliPeppersBoiledInSoySauce.png",
-        videoUrl: "https://www.youtube.com/embed/qYb5c2QJit8",
+    }),
+    createRecipe({
         title: "진미채 꿀 꽈리고추 간장조림",
         chef: "마카롱여사",
         category: "조림",
-        typeList: "sideDished",
+        imgUrl: "/images/DriedSquidChiliPeppersBoiledInSoySauce.png",
+        videoUrl: "https://www.youtube.com/watch?v=qYb5c2QJit8",
         sourceUrl: "",
         ingredients: [
             "진미채 300g",
@@ -1206,15 +1141,13 @@ export const recipes: Recipe[] = [
             "물엿 또는 올리고당 2T 둘러 윤기를 내준다.",
             "간장 물이 어느 정도 줄어들면 통깨 뿌려 준다."
         ]
-    }
-    , {
-        id: "dish34",
-        imgUrl: "/images/yellowishOverripeCucumberSalad.png",
-        videoUrl: "https://www.youtube.com/embed/ozqfSjyWY64",
+    }),
+    createRecipe({
         title: "노각무침",
         chef: "마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/yellowishOverripeCucumberSalad.png",
+        videoUrl: "https://www.youtube.com/watch?v=ozqfSjyWY64",
         sourceUrl: "",
         ingredients: [
             "노각 1.8kg(소금 2t, 설탕 2T, 식초 2T 절임)"
@@ -1240,15 +1173,13 @@ export const recipes: Recipe[] = [
             "다진 파, 다진 마늘, 다진 청양고추, 식초 2T, 매실청 1T, 소금 0.5T, 설탕 1T, 통깨 넣어 버무려 준다.",
             "참기름은 먹기 전에 넣어 주면 좋다"
         ]
-    }
-    , {
-        id: "dish35",
-        imgUrl: "/images/tteokbokkiWithTomatoSauce.png",
-        videoUrl: "https://www.youtube.com/embed/gWWwYIHQ6EI",
+    }),
+    createRecipe({
         title: "토마토소스 떡볶이",
         chef: "마카롱여사",
         category: "간식",
-        typeList: "dessert",
+        imgUrl: "/images/tteokbokkiWithTomatoSauce.png",
+        videoUrl: "https://www.youtube.com/watch?v=gWWwYIHQ6EI",
         sourceUrl: "",
         ingredients: [
             "떡볶이 떡 500g",
@@ -1270,15 +1201,13 @@ export const recipes: Recipe[] = [
             "어묵, 대파, 소시지 넣어 보글보글 끓여 준다.",
             "떡이 말랑말랑 익으면 완성"
         ]
-    }
-    , {
-        id: "dish36",
-        imgUrl: "/images/stir-friedFishCakeWithSoySauce.png",
-        videoUrl: "https://www.youtube.com/embed/UMnRrXhaRnQ",
+    }),
+    createRecipe({
         title: "어묵볶음(간장맛)",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/stir-friedFishCakeWithSoySauce.png",
+        videoUrl: "https://www.youtube.com/watch?v=UMnRrXhaRnQ",
         sourceUrl: "",
         ingredients: [
             "얇은 어묵 300g",
@@ -1310,15 +1239,13 @@ export const recipes: Recipe[] = [
             "고추기름 1T, 참기름 1t 넣어 주면 된다.",
             "마지막에 통깨 뿌려 주면 완성"
         ]
-    }
-    , {
-        id: "dish37",
-        imgUrl: "/images/shreddedDaikon.png",
-        videoUrl: "https://www.youtube.com/embed/4FWNdQI4G9M",
+    }),
+    createRecipe({
         title: "무생채",
         chef: "마카롱여사",
         category: "생채",
-        typeList: "sideDished",
+        imgUrl: "/images/shreddedDaikon.png",
+        videoUrl: "https://www.youtube.com/watch?v=4FWNdQI4G9M",
         sourceUrl: "",
         ingredients: [
             "무 1.4kg(소금 1t, 설탕 2T)"
@@ -1343,15 +1270,13 @@ export const recipes: Recipe[] = [
             "양념이 잘 스며들게 버무려 준다.",
             "통깨 1T 넣어주면 완성"
         ]
-    }
-    , {
-        id: "dish38",
-        imgUrl: "/images/freshCabbageKimchi.png",
-        videoUrl: "https://www.youtube.com/embed/vnhPD2Bn2L4",
+    }),
+    createRecipe({
         title: "알 배추 겉절이",
         chef: "마카롱여사",
         category: "겉절이",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/freshCabbageKimchi.png",
+        videoUrl: "https://www.youtube.com/watch?v=vnhPD2Bn2L4",
         sourceUrl: "",
         ingredients: [
             "얄배추 2kg(소금 3T, 물 200ml)",
@@ -1379,15 +1304,13 @@ export const recipes: Recipe[] = [
             "고춧가루 3T 뿌려 먼저 섞어 수분을 잡아 준 다음 간 양념을 부어 치대듯 비벼 준다.",
             "마지막 통깨 듬뿍 뿌려 주면 된다."
         ]
-    }
-    , {
-        id: "dish39",
-        imgUrl: "/images/chiliOil.png",
-        videoUrl: "https://www.youtube.com/embed/s1cwvnQgHB8",
+    }),
+    createRecipe({
         title: "고추기름",
         chef: "마카롱여사",
         category: "소스",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/chiliOil.png",
+        videoUrl: "https://www.youtube.com/watch?v=s1cwvnQgHB8",
         sourceUrl: "",
         ingredients: [
             "굵은 대파 흰 대만 2개"
@@ -1401,15 +1324,13 @@ export const recipes: Recipe[] = [
             "팬에 식용유 400ml 넣어 대파 흰 대부분 넣어 끓여 준다.",
             "중불에서 흰 대부분이 노릇해지면 불을 끄고 고춧가루 300ml 넣어 휘저어 준 다음 20분 정도 뒀다가 커피 필터에 기름만 걸러 사용하세요."
         ]
-    }
-    , {
-        id: "dish40",
-        imgUrl: "/images/softTofuPaste.png",
-        videoUrl: "https://www.youtube.com/embed/s1cwvnQgHB8?start=77",
+    }),
+    createRecipe({
         title: "순두부 페이스트",
         chef: "마카롱여사",
         category: "소스",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/softTofuPaste.png",
+        videoUrl: "https://www.youtube.com/watch?v=s1cwvnQgHB8",
         sourceUrl: "",
         ingredients: [
             "다진 마늘 100g",
@@ -1431,15 +1352,13 @@ export const recipes: Recipe[] = [
             "물 2T, 간장 3T, 참치액 2T, 천일염 3T, 후추 1t 넣어 소금이 녹게끔 약불에서 섞어 준다.",
             "완전하게 식힌 다음 소독한 병에 넣어 냉동 보관하세요(6개월)."
         ]
-    }
-    , {
-        id: "dish41",
-        imgUrl: "/images/softTofuKrStew.png",
-        videoUrl: "https://www.youtube.com/embed/s1cwvnQgHB8?start=200",
+    }),
+    createRecipe({
         title: "순두부 찌개",
         chef: "마카롱여사",
         category: "찌개",
-        typeList: "krstew",
+        imgUrl: "/images/softTofuKrStew.png",
+        videoUrl: "https://www.youtube.com/watch?v=s1cwvnQgHB8",
         sourceUrl: "",
         ingredients: [
             "순두부 2봉",
@@ -1455,15 +1374,13 @@ export const recipes: Recipe[] = [
             "수두부 양념장 크게 2T 넣어 보글보글 끓여 준다.",
             "끓기 시작하면 다진 대파와 달걀 3개 넣어 익혀 준다."
         ]
-    }
-    , {
-        id: "dish42",
-        imgUrl: "/images/sheetOfStone.png",
-        videoUrl: "https://www.youtube.com/embed/Mt2izRHPZME",
+    }),
+    createRecipe({
         title: "설렁탕집 석박지",
         chef: "조샘→마카롱여사",
         category: "석박지",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/sheetOfStone.png",
+        videoUrl: "https://www.youtube.com/watch?v=Mt2izRHPZME",
         sourceUrl: "",
         ingredients: [
             "무 4kg(설탕 2T, 꽃소금 2T)",
@@ -1498,15 +1415,13 @@ export const recipes: Recipe[] = [
             "설탕 1T, 소금 1T를 넣고 마지막 통깨 넣어 버무려 준다.",
             "실온에 하루 정도 익히고 냉장고에 3~4일 정도 숙성했다가 먹으면 가장 맛나요."
         ]
-    }
-    , {
-        id: "dish43",
-        imgUrl: "/images/deliciousKimchi.png",
-        videoUrl: "https://www.youtube.com/embed/XA_gGywv0OA",
+    }),
+    createRecipe({
         title: "맛김치",
         chef: "마카롱여사",
         category: "김치",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/deliciousKimchi.png",
+        videoUrl: "https://www.youtube.com/watch?v=XA_gGywv0OA",
         sourceUrl: "",
         ingredients: [
             "배추 3kg 1포기(물 1리터, 소금 200ml)",
@@ -1543,15 +1458,13 @@ export const recipes: Recipe[] = [
             "양념에 골고루 치대듯 비벼 준다.",
             "통깨 듬뿍 넣어 하루 동안 실온 숙성하고 냉장고에 3일 보관 후 먹으면 딱 알맞게 익어 맛이 좋다."
         ]
-    }
-    , {
-        id: "dish44",
-        imgUrl: "/images/spicyStir-friedFishCake.png",
-        videoUrl: "https://www.youtube.com/embed/yLKtybFuRpI",
+    }),
+    createRecipe({
         title: "매운어묵볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/spicyStir-friedFishCake.png",
+        videoUrl: "https://www.youtube.com/watch?v=yLKtybFuRpI",
         sourceUrl: "",
         ingredients: [
             "어묵 400g",
@@ -1579,15 +1492,13 @@ export const recipes: Recipe[] = [
             "양념장과 물 70ml 넣어 볶아 준다.",
             "수분이 줄어 들면 물엿을 2T 넣어 윤기를 내주고 통깨로 마무리"
         ]
-    }
-    , {
-        id: "dish45",
-        imgUrl: "/images/braisedBurdock.png",
-        videoUrl: "https://www.youtube.com/embed/yLKtybFuRpI?start=139",
+    }),
+    createRecipe({
         title: "우엉조림",
         chef: "마카롱여사",
         category: "조림",
-        typeList: "sideDished",
+        imgUrl: "/images/braisedBurdock.png",
+        videoUrl: "https://www.youtube.com/watch?v=yLKtybFuRpI",
         sourceUrl: "",
         ingredients: [
             "우엉 400g~500g"
@@ -1612,15 +1523,13 @@ export const recipes: Recipe[] = [
             "뭉근하게 좀 오래 볶아야 쫀듯하면서 맛이 좋다.",
             "우엉이 진한 색을 띠면 참기름 약간 통깨 넣어 마무리한다."
         ]
-    }
-    , {
-        id: "dish46",
-        imgUrl: "/images/Japchae.png",
-        videoUrl: "https://www.youtube.com/embed/joey-y1aHqg",
+    }),
+    createRecipe({
         title: "잡채",
         chef: "마카롱여사",
         category: "밑반찬",
-        typeList: "sideDished",
+        imgUrl: "/images/Japchae.png",
+        videoUrl: "https://www.youtube.com/watch?v=joey-y1aHqg",
         sourceUrl: "",
         ingredients: [
             "자른 당면 300g",
@@ -1649,15 +1558,13 @@ export const recipes: Recipe[] = [
             "소스가 완전히 줄어들면 생부추를 넣어 뜨거운 열기에 의해 숨이 죽게 섞어주고 당면에 소스가 잘 스며들게 볶아주면 식어도 불지 않고 촉촉하니 맛이 좋다.",
             "미리 볶은 재료를 넣어 불을 줄이고 잘 섞어 준다. 통깨를 넣어 잘 버무려 준다."
         ]
-    }
-    , {
-        id: "dish47",
-        imgUrl: "/images/friedChickenWithSoySauce.png",
-        videoUrl: "https://www.youtube.com/embed/r25LYNT7LEw",
+    }),
+    createRecipe({
         title: "간장 양념 닭튀김",
         chef: "마카롱여사",
         category: "튀김",
-        typeList: "dessert",
+        imgUrl: "/images/friedChickenWithSoySauce.png",
+        videoUrl: "https://www.youtube.com/watch?v=r25LYNT7LEw",
         sourceUrl: "",
         ingredients: [
             "윙 또는 닭봉 500~600g",
@@ -1686,15 +1593,13 @@ export const recipes: Recipe[] = [
             "간장 1T, 설탕 1T, 미림 1T, 물 1T, 물엿 1T, 베트남 고추 3~4개 부셔 바르르 끓이다가 튀긴 닭을 넣어 양념이 잘 묻어나게 볶아 준다.",
             "마지막 통깨  실파 다진 거 넣어서 먹으면 된다."
         ]
-    }
-    , {
-        id: "dish48",
-        imgUrl: "/images/kimchiWithWater.png",
-        videoUrl: "https://www.youtube.com/embed/-ZADLipMxZM",
+    }),
+    createRecipe({
         title: "톡쏘는 물김치",
         chef: "지호할매→마카롱여사",
         category: "물김치",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/kimchiWithWater.png",
+        videoUrl: "https://www.youtube.com/watch?v=-ZADLipMxZM",
         sourceUrl: "",
         ingredients: [
             "알 배추 900g~1kg",
@@ -1731,15 +1636,13 @@ export const recipes: Recipe[] = [
             "편 마늘, 편 생강, 쪽파 넣어 주방에 15시간 숙성해 준다",
             "15시간이 지나면 냉장 보관 해놓고 하루 정도 있다 먹는다."
         ]
-    }
-    , {
-        id: "dish49",
-        imgUrl: "/images/seasonedCeltuce.png",
-        videoUrl: "https://www.youtube.com/embed/jcuBDVFWSo8",
+    }),
+    createRecipe({
         title: "궁채무침",
         chef: "마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/seasonedCeltuce.png",
+        videoUrl: "https://www.youtube.com/watch?v=jcuBDVFWSo8",
         sourceUrl: "",
         ingredients: [
             "불린 궁채 400g",
@@ -1763,15 +1666,13 @@ export const recipes: Recipe[] = [
             "궁채에 황설탕 2T, 식초 2T, 소금 2t 넣어 버무린 뒤 40분에서 1시간 정도 절이기",
             "절인 궁채 수분 제거한 뒤 고추기름 2T, 진간장 2T, 설탕 2T, 다진 마늘 1T 넣어 버무리기"
         ]
-    }
-    , {
-        id: "dish50",
-        imgUrl: "/images/freshSpinach.png",
-        videoUrl: "https://www.youtube.com/embed/rvYR8FbVn18",
+    }),
+    createRecipe({
         title: "시금치 겉절이",
         chef: "마카롱여사",
         category: "겉절이",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/freshSpinach.png",
+        videoUrl: "https://www.youtube.com/watch?v=rvYR8FbVn18",
         sourceUrl: "",
         ingredients: [
             "섬초 200g"
@@ -1788,15 +1689,13 @@ export const recipes: Recipe[] = [
             "찬물에 담가 흙모래를 털어내고 깨끗하게 씻어 물기 빼 준다.",
             "간장 1T, 설탕 1T, 식초 1T, 참기름 1T, 고춧가루 1T 넣어 조물조물 무쳐 주면 새콤달콤하니 맛이 좋다."
         ]
-    }
-    , {
-        id: "dish51",
-        imgUrl: "/images/spinachSalad.png",
-        videoUrl: "https://www.youtube.com/embed/rvYR8FbVn18?start=52",
+    }),
+    createRecipe({
         title: "시금치 나물",
         chef: "마카롱여사",
         category: "나물",
-        typeList: "sideDished",
+        imgUrl: "/images/spinachSalad.png",
+        videoUrl: "https://www.youtube.com/watch?v=rvYR8FbVn18",
         sourceUrl: "",
         ingredients: [
             "포항초 200g"
@@ -1811,15 +1710,13 @@ export const recipes: Recipe[] = [
             "끓는 물에 소금 약간 넣어 10초 삶고 찬물에 헹궈 물기 꼭 짜 준다.",
             "참기름 1t 통깨 반은 부숴 넣고 반은 통으로 넣어 조물조물 무쳐 준다."
         ]
-    }
-    , {
-        id: "dish52",
-        imgUrl: "/images/broccoliGreens.png",
-        videoUrl: "https://www.youtube.com/embed/vQbBAT6LhI0",
+    }),
+    createRecipe({
         title: "브로콜리 볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/broccoliGreens.png",
+        videoUrl: "https://www.youtube.com/watch?v=vQbBAT6LhI0",
         sourceUrl: "",
         ingredients: [
             "베이비브로콜리 400g"
@@ -1835,15 +1732,13 @@ export const recipes: Recipe[] = [
             "물기 제거한 브로콜리니는 심지가 굵은 건 반 갈라 볶아 준다.",
             "올리브오일에 마늘 페페론치노를 볶다가 물기 뺀 브로콜리니를 충분하게 오일에 코팅되게 볶아주면 약간 매콤하면서 정말 고소하니 맛이 좋다."
         ]
-    }
-    , {
-        id: "dish53",
-        imgUrl: "/images/stir-friedPineMushrooms.png",
-        videoUrl: "https://www.youtube.com/embed/vQbBAT6LhI0?start=91",
+    }),
+    createRecipe({
         title: "새송이버섯볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/stir-friedPineMushrooms.png",
+        videoUrl: "https://www.youtube.com/watch?v=vQbBAT6LhI0",
         sourceUrl: "",
         ingredients: [
             "굵은 새송이버섯 5~6개"
@@ -1860,15 +1755,13 @@ export const recipes: Recipe[] = [
             "맛간장 1T, 화이트 발사믹소스 1T, 물엿 2T 넣어 수분을 날리듯 뒤집어 가면서 볶아 준다.",
             "칼집 사이사이 충분하게 소스가 스며들어 맛이 좋은 거 같아요."
         ]
-    }
-    , {
-        id: "dish54",
-        imgUrl: "/images/stir-friedSpicyPork.png",
-        videoUrl: "https://www.youtube.com/embed/T4JPNEm3MJw",
+    }),
+    createRecipe({
         title: "제육볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/stir-friedSpicyPork.png",
+        videoUrl: "https://www.youtube.com/watch?v=T4JPNEm3MJw",
         sourceUrl: "",
         ingredients: [
             "돼지 뒷다리살 600g",
@@ -1898,15 +1791,13 @@ export const recipes: Recipe[] = [
             "고기는 볶으면서 풀어 가면서 볶아야지 살코기가 부드러워요.",
             "다진 대파를 넣어 볶다가 다 익으면 먼저 익힌 양파와 마늘을 섞어 통깨 뿌려 주면 완성"
         ]
-    }
-    , {
-        id: "dish55",
-        imgUrl: "/images/seasonedOysters.png",
-        videoUrl: "https://www.youtube.com/embed/BjNHAzikLag",
+    }),
+    createRecipe({
         title: "굴무침",
         chef: "마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/seasonedOysters.png",
+        videoUrl: "https://www.youtube.com/watch?v=BjNHAzikLag",
         sourceUrl: "",
         ingredients: [
             "생굴 450g",
@@ -1933,15 +1824,13 @@ export const recipes: Recipe[] = [
             "물기를 잘 빼서 미나리 절인 무에 소량의 고춧가루를 먼저 조금 뿌려 양념을 섞어 비빈 후 물기 뺀 굴을 넣어 살살 버무려 준다.",
             "통깨로 마무리"
         ]
-    }
-    , {
-        id: "dish56",
-        imgUrl: "/images/oysterPancake.png",
-        videoUrl: "https://www.youtube.com/embed/BjNHAzikLag?start=149",
+    }),
+    createRecipe({
         title: "굴전",
         chef: "마카롱여사",
         category: "전",
-        typeList: "pancake",
+        imgUrl: "/images/oysterPancake.png",
+        videoUrl: "https://www.youtube.com/watch?v=BjNHAzikLag",
         sourceUrl: "",
         ingredients: [
             "생굴 350g",
@@ -1960,15 +1849,13 @@ export const recipes: Recipe[] = [
             "굴은 부침가루 발라 훌훌 털어 준다.",
             "달걀물에 넣어 숟가락으로 한 알씩 똑 떠서 부쳐 준다."
         ]
-    }
-    , {
-        id: "dish57",
-        imgUrl: "/images/flavoredSoySauce.png",
-        videoUrl: "https://www.youtube.com/embed/AeqVDlf7Gro",
+    }),
+    createRecipe({
         title: "맛간장",
         chef: "명란샘→마카롱여사",
         category: "소스",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/flavoredSoySauce.png",
+        videoUrl: "https://www.youtube.com/watch?v=AeqVDlf7Gro",
         sourceUrl: "",
         ingredients: [
             "샘표 양조간장 501 또는 701 2L",
@@ -1997,15 +1884,13 @@ export const recipes: Recipe[] = [
             "완성된 간장은 12시간 이상 서늘한 그늘에 그대로 두었다가 고운체에 거른다.",
             "병에 넣어 냉장고 보관. (조림, 볶음, 무침, 찜등에  사용) [냉장 보관 6개월]"
         ]
-    }
-    , {
-        id: "dish58",
-        imgUrl: "/images/gingerLiquor.png",
-        videoUrl: "https://www.youtube.com/embed/kZ_97Xfqw2A",
+    }),
+    createRecipe({
         title: "생강술",
         chef: "마카롱여사",
         category: "소스",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/gingerLiquor.png",
+        videoUrl: "https://www.youtube.com/watch?v=kZ_97Xfqw2A",
         sourceUrl: "",
         ingredients: [
             "생강 200g",
@@ -2021,15 +1906,13 @@ export const recipes: Recipe[] = [
             "채 망에 즙만 걸러 준다.",
             "건더기는 설탕과 동량으로 비벼 냉장 보관 해 놓고 고기 요리할 때 사용하면 된다."
         ]
-    }
-    , {
-        id: "dish59",
-        imgUrl: "/images/tzuyu.png",
-        videoUrl: "https://www.youtube.com/embed/xrXJPY9ZB30",
+    }),
+    createRecipe({
         title: "쯔유",
         chef: "마카롱여사",
         category: "소스",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/tzuyu.png",
+        videoUrl: "https://www.youtube.com/watch?v=xrXJPY9ZB30",
         sourceUrl: "",
         ingredients: [
             "육수(마른표고 10개, 다시마 30cm, 물 1L)",
@@ -2057,15 +1940,13 @@ export const recipes: Recipe[] = [
             "메밀소바 2:1(물 2:쯔유 1)",
             "스끼야끼, 간단한 비빔면 등 활용"
         ]
-    }
-    , {
-        id: "dish60",
-        imgUrl: "/images/ColabiPickles.png",
-        videoUrl: "https://www.youtube.com/embed/48UFXiq7dSc",
+    }),
+    createRecipe({
         title: "콜라비 피클",
         chef: "마카롱여사",
         category: "피클",
-        typeList: "kimchiSaltedPaste",
+        imgUrl: "/images/ColabiPickles.png",
+        videoUrl: "https://www.youtube.com/watch?v=48UFXiq7dSc",
         sourceUrl: "",
         ingredients: [
             "콜라비 2개",
@@ -2087,15 +1968,13 @@ export const recipes: Recipe[] = [
             "피클링스파이스 향이 올라오면 불을 끄고 끓는 물을 콜라비에 부어 준다.",
             "하루 정도 실온에 뒀다가 냉장 보관"
         ]
-    }
-    , {
-        id: "dish61",
-        imgUrl: "/images/driedRadishSalad.png",
-        videoUrl: "https://www.youtube.com/embed/UtaafNfhTtQ",
+    }),
+    createRecipe({
         title: "무말랭이무침",
         chef: "명란샘→마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/driedRadishSalad.png",
+        videoUrl: "https://www.youtube.com/watch?v=UtaafNfhTtQ",
         sourceUrl: "",
         ingredients: [
             "말린무 120g",
@@ -2121,15 +2000,13 @@ export const recipes: Recipe[] = [
             "꽉 짠 무와 양념 그리고 쪽파.청양고추를 넣고 비벼 준다.",
             "마지막에 통깨를 넣고 2시간 정도 둔다."
         ]
-    }
-    , {
-        id: "dish62",
-        imgUrl: "/images/radishGreens.png",
-        videoUrl: "https://www.youtube.com/embed/qDJWOm7SwLI",
+    }),
+    createRecipe({
         title: "가을 무나물",
         chef: "마카롱여사",
         category: "나물",
-        typeList: "sideDished",
+        imgUrl: "/images/radishGreens.png",
+        videoUrl: "https://www.youtube.com/watch?v=qDJWOm7SwLI",
         sourceUrl: "",
         ingredients: [
             "무 500g",
@@ -2150,15 +2027,13 @@ export const recipes: Recipe[] = [
             "부족한 간은 소금으로 해 준다.",
             "다진 파 통깨 넣어 팬에서 꺼내 식힘 망에 올려 식혀 준다."
         ]
-    }
-    , {
-        id: "dish63",
-        imgUrl: "/images/seasonedGarlicStems.png",
-        videoUrl: "https://www.youtube.com/embed/Q_kWeNysck8",
+    }),
+    createRecipe({
         title: "마늘쫑무침",
         chef: "마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/seasonedGarlicStems.png",
+        videoUrl: "https://www.youtube.com/watch?v=Q_kWeNysck8",
         sourceUrl: "",
         ingredients: [
             "마늘쫑 400g"
@@ -2180,15 +2055,13 @@ export const recipes: Recipe[] = [
             "마늘쫑은 끓는 물에 야들하게 1~2분 정도 삶아 준다.",
             "채반에 올려 물기 제거 후 양념장에 버무려 준다."
         ]
-    }
-    , {
-        id: "dish64",
-        imgUrl: "/images/braisedMackerel.png",
-        videoUrl: "https://www.youtube.com/embed/vvm9XJEwnHc",
+    }),
+    createRecipe({
         title: "고등어조림",
         chef: "마카롱여사",
         category: "조림",
-        typeList: "krSoup",
+        imgUrl: "/images/braisedMackerel.png",
+        videoUrl: "https://www.youtube.com/watch?v=vvm9XJEwnHc",
         sourceUrl: "",
         ingredients: [
             "고등어 2마리(갈치 1마리 / 병어 5마리 / 가자미 2마리 / 코다리)",
@@ -2218,15 +2091,13 @@ export const recipes: Recipe[] = [
             "육수 또는 생수 400ml 넣어 끓여 준다.",
             "냄비 뚜껑을 닫고 바글바글 끓이다가 마지막에 뚜껑 열고 센 불에 살짝 지져준다. (좀 튀김)"
         ]
-    }
-    , {
-        id: "dish65",
-        imgUrl: "/images/braisedMackerelWithSeasoning.png",
-        videoUrl: "https://www.youtube.com/embed/NQvl6C63vOI",
+    }),
+    createRecipe({
         title: "고등어 양념조림",
         chef: "마카롱여사",
         category: "조림",
-        typeList: "krSoup",
+        imgUrl: "/images/braisedMackerelWithSeasoning.png",
+        videoUrl: "https://www.youtube.com/watch?v=NQvl6C63vOI",
         sourceUrl: "",
         ingredients: [
             "고등어 2마리",
@@ -2256,15 +2127,13 @@ export const recipes: Recipe[] = [
             "앞뒤로 노릇해지면 양념장을 끼얹어 냄비 뚜껑을 닫고 약불에서 5분 정도 구워 준다.",
             "타지 않게 불 조절해야 한다."
         ]
-    }
-    , {
-        id: "dish66",
-        imgUrl: "/images/seasonedSweetPotatoStems.png",
-        videoUrl: "https://www.youtube.com/embed/wr9IINn2Q50",
+    }),
+    createRecipe({
         title: "고구마 줄기무침(새콤)",
         chef: "마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/seasonedSweetPotatoStems.png",
+        videoUrl: "https://www.youtube.com/watch?v=wr9IINn2Q50",
         sourceUrl: "",
         ingredients: [
             "껍질 벗긴 고구마 줄기 840g(물 600ml, 소금 1t)"
@@ -2289,15 +2158,13 @@ export const recipes: Recipe[] = [
             "다진 쪽파 1T, 다진 청양고추 2개, 다진 마늘 1T, 통깨 1T, 고추장 1T, 고춧가루 1t, 설탕 1t, 2배 식초 1t, 간장 1T, 참치액 1t, 참기름 1T, 매실액 1T 양념을 섞어 준다.",
             "물기 꼭 짠 고구마 줄기와 양념에 무쳐 준다."
         ]
-    }
-    , {
-        id: "dish67",
-        imgUrl: "/images/redBeanPasteSauce.png",
-        videoUrl: "https://www.youtube.com/embed/wr9IINn2Q50?start=113",
+    }),
+    createRecipe({
         title: "강된장",
         chef: "마카롱여사",
         category: "찌개",
-        typeList: "krstew",
+        imgUrl: "/images/redBeanPasteSauce.png",
+        videoUrl: "https://www.youtube.com/watch?v=wr9IINn2Q50",
         sourceUrl: "",
         ingredients: [
             "조갯살 250g",
@@ -2321,15 +2188,13 @@ export const recipes: Recipe[] = [
             "감자가 익으면 된장, 쌈장 넣어 끓여 준다. (감자가 뭉개질 정도로 걸쭉하게 익혀 준다)",
             "조갯살 250g, 고추, 쪽파 넣어 끓여 주면 완성"
         ]
-    }
-    , {
-        id: "dish68",
-        imgUrl: "/images/non-spicyStir-friedFishCake.png",
-        videoUrl: "https://www.youtube.com/embed/IYGExJORPx8",
+    }),
+    createRecipe({
         title: "안 매운 어묵볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/non-spicyStir-friedFishCake.png",
+        videoUrl: "https://www.youtube.com/watch?v=IYGExJORPx8",
         sourceUrl: "",
         ingredients: [
             "어묵 460g(어육 함량 높은 것)",
@@ -2353,15 +2218,13 @@ export const recipes: Recipe[] = [
             "불을 중불 이하로 낮춰 볶아 주면 된다.",
             "마지막 통깨를 넣어 주면 완성"
         ]
-    }
-    , {
-        id: "dish69",
-        imgUrl: "/images/stir-friedDriedSquid.png",
-        videoUrl: "https://www.youtube.com/embed/9GBq9MM2jCc",
+    }),
+    createRecipe({
         title: "진미채볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/stir-friedDriedSquid.png",
+        videoUrl: "https://www.youtube.com/watch?v=9GBq9MM2jCc",
         sourceUrl: "",
         ingredients: [
             "진미채 150g(마요네즈 2T)"
@@ -2385,15 +2248,13 @@ export const recipes: Recipe[] = [
             "끓기 시작하면 불을 줄이고 진미채를 넣어 약불에 양념이 잘 섞이게 볶아 준다.",
             "양념이 골고루 섞이게 풀어 가면서 볶아 준다."
         ]
-    }
-    , {
-        id: "dish70",
-        imgUrl: "/images/stir-friedAnchoviesWalnuts.png",
-        videoUrl: "https://www.youtube.com/embed/E14ff1T8bqQ",
+    }),
+    createRecipe({
         title: "잔멸치호두볶음",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/stir-friedAnchoviesWalnuts.png",
+        videoUrl: "https://www.youtube.com/watch?v=E14ff1T8bqQ",
         sourceUrl: "",
         ingredients: [
             "잔멸치 150g",
@@ -2421,15 +2282,13 @@ export const recipes: Recipe[] = [
             "약불에서 타지 않게 소스가 줄어 들 때까지 볶아 준다.",
             "마지막에 통깨 부려 준다."
         ]
-    }
-    , {
-        id: "dish71",
-        imgUrl: "/images/stir-friedDriedAnchoviesHot.png",
-        videoUrl: "https://www.youtube.com/embed/8ikbPoXrosU",
+    }),
+    createRecipe({
         title: "잔멸치볶음 (매움)",
         chef: "마카롱여사",
         category: "볶음",
-        typeList: "sideDished",
+        imgUrl: "/images/stir-friedDriedAnchoviesHot.png",
+        videoUrl: "https://www.youtube.com/watch?v=8ikbPoXrosU",
         sourceUrl: "",
         ingredients: [
             "잔멸치 150g"
@@ -2451,15 +2310,13 @@ export const recipes: Recipe[] = [
             "끓기 시작하면 중불에 1분 정도 끓여 준 다음 불을 끄거나 약불로 줄여 잔멸치 넣어 볶아준다. (식어도 멸치가 굳지 않음)",
             "마지막으로 통깨를 뿌려 마무리"
         ]
-    }
-    , {
-        id: "dish72",
-        imgUrl: "/images/hotSpicyMeatStew.png",
-        videoUrl: "https://www.youtube.com/embed/fGt0RLj5akQ",
+    }),
+    createRecipe({
         title: "대파육개장",
         chef: "마카롱여사",
         category: "찌개",
-        typeList: "krstew",
+        imgUrl: "/images/hotSpicyMeatStew.png",
+        videoUrl: "https://www.youtube.com/watch?v=fGt0RLj5akQ",
         sourceUrl: "",
         ingredients: [
             "소고기 양지 600g(치마양지)",
@@ -2492,15 +2349,13 @@ export const recipes: Recipe[] = [
             "고기 삶은 물 2.8~3L에 소금 0.5T 넣어 준다.",
             "양념한 고기와 대파를 국물에 넣어 끓여 준다. (끓기 시작하면 약불에 30~40분)"
         ]
-    }
-    , {
-        id: "dish73",
-        imgUrl: "/images/fishRoeSoup.png",
-        videoUrl: "https://www.youtube.com/embed/gNr2E6BYIFQ",
+    }),
+    createRecipe({
         title: "알탕",
         chef: "마카롱여사",
         category: "탕",
-        typeList: "krSoup",
+        imgUrl: "/images/fishRoeSoup.png",
+        videoUrl: "https://www.youtube.com/watch?v=gNr2E6BYIFQ",
         sourceUrl: "",
         ingredients: [
             "명태알 250g",
@@ -2527,15 +2382,13 @@ export const recipes: Recipe[] = [
             "팔팔 끓기 시작해 무가 익으면 알과 나머지 양념을 넣어 한소끔 끓여 준다.",
             "쑥갓, 미나리, 청·홍 고추 넣어 알이 익으면 완료"
         ]
-    }
-    , {
-        id: "dish74",
-        imgUrl: "/images/SeasonedWildChiveGreenLaver.png",
-        videoUrl: "https://www.youtube.com/embed/00dJhdL5K-0",
+    }),
+    createRecipe({
         title: "달래파래무침",
         chef: "마카롱여사",
         category: "무침",
-        typeList: "sideDished",
+        imgUrl: "/images/SeasonedWildChiveGreenLaver.png",
+        videoUrl: "https://www.youtube.com/watch?v=00dJhdL5K-0",
         sourceUrl: "",
         ingredients: [
             "물파래 200g",
@@ -2559,15 +2412,13 @@ export const recipes: Recipe[] = [
             "파래는 젓가락을 이용해 풀어 가면서 양념이 스며들게 무쳐 준다.",
             "고춧가루는 파래에서 나오는 수분을 잡아줌. 줄이지 않기"
         ]
-    }
-    , {
-        id: "dish75",
-        imgUrl: "/images/bean-pasteSoup.png",
-        videoUrl: "https://www.youtube.com/embed/pDRAexOV1Ac",
+    }),
+    createRecipe({
         title: "청국장",
         chef: "마카롱여사",
         category: "국",
-        typeList: "krSoup",
+        imgUrl: "/images/bean-pasteSoup.png",
+        videoUrl: "https://www.youtube.com/watch?v=pDRAexOV1Ac",
         sourceUrl: "",
         ingredients: [
             "청국장 220g",
@@ -2598,15 +2449,13 @@ export const recipes: Recipe[] = [
             "고춧가루 넣어 준다.",
             "짜지 않은 청국장 마지막에 넣어 살짝 끓여 주면 완성"
         ]
-    }
-    , {
-        id: "dish76",
-        imgUrl: "/images/potatoTunaStew.png",
-        videoUrl: "https://www.youtube.com/embed/Ezv9IjVQxGw",
+    }),
+    createRecipe({
         title: "감자 참치 찌개",
         chef: "마카롱여사",
         category: "찌개",
-        typeList: "krstew",
+        imgUrl: "/images/potatoTunaStew.png",
+        videoUrl: "https://www.youtube.com/watch?v=Ezv9IjVQxGw",
         sourceUrl: "",
         ingredients: [
             "감자 큰 거 2개",
@@ -2634,15 +2483,13 @@ export const recipes: Recipe[] = [
             "육수를 넣고 보글보글 끓기 시작하면 호박, 청양고추, 대파를 넣어 익을 때까지 끓여 준다.",
             "부족한 간은 소금으로 맞춰 준다."
         ]
-    }
-    , {
-        id: "dish77",
-        imgUrl: "/images/koreanStyleMeatball.png",
-        videoUrl: "https://www.youtube.com/embed/vluRGMcE1Aw",
+    }),
+    createRecipe({
         title: "동그랑땡",
         chef: "마카롱여사",
         category: "전",
-        typeList: "pancake",
+        imgUrl: "/images/koreanStyleMeatball.png",
+        videoUrl: "https://www.youtube.com/watch?v=vluRGMcE1Aw",
         sourceUrl: "",
         ingredients: [
             "간 돼지고기 1~1.2kg",
@@ -2672,15 +2519,13 @@ export const recipes: Recipe[] = [
             "팬은 미리 예열 후 기름을 골고루 바르고 달걀물에 담가 숟가락으로 떠 올려 팬에 한 개씩 올려 준다.",
             "중불 정도에서 중간에 기름을 추가 해 주면서 구워 주면 된다."
         ]
-    }
-    , {
-        id: "dish78",
-        imgUrl: "/images/boiledChickenBreastSalad.png",
-        videoUrl: "https://www.youtube.com/embed/kEb1yUWbCvk",
+    }),
+    createRecipe({
         title: "삶은 닭가슴살 샐러드 (534Kcal)",
         chef: "마카롱여사",
         category: "샐러드",
-        typeList: "salad",
+        imgUrl: "/images/boiledChickenBreastSalad.png",
+        videoUrl: "https://www.youtube.com/watch?v=kEb1yUWbCvk",
         sourceUrl: "",
         ingredients: [
             "닭가슴살 300g (소금, 후추, 물 700ml)",
@@ -2703,15 +2548,13 @@ export const recipes: Recipe[] = [
             "로메인, 그래놀라, 방울토마토를 담고 양념한 닭가슴살을 올려 남은 소스를 올리면 완성",
             "닭가슴살은 1인분 100g / 삶은 닭고기를 냉장 보관 할 때는 삶은 물에 그대로 보관해야 비린내가 나지 않는다."
         ]
-    }
-    , {
-        id: "dish79",
-        imgUrl: "/images/kfcKawslow.png",
-        videoUrl: "https://www.youtube.com/embed/6-V-jlLst4g",
+    }),
+    createRecipe({
         title: "KFC 코우슬로",
         chef: "마카롱여사",
         category: "샐러드",
-        typeList: "salad",
+        imgUrl: "/images/kfcKawslow.png",
+        videoUrl: "https://www.youtube.com/watch?v=6-V-jlLst4g",
         sourceUrl: "",
         ingredients: [
             "양배추 400g",
@@ -2737,15 +2580,13 @@ export const recipes: Recipe[] = [
             "썰어 놓은 재료 볼에 넣어 설탕 3T, 식초 4T, 소금 1t, 씨겨자 2T, 후추 조금, 마요네즈 2/3컵 (135ml 정도) 넣어 잘 섞어 주세요.",
             "만들고 한 시간 뒤에 먹어야 제맛"
         ]
-    }
-    , {
-        id: "dish80",
-        imgUrl: "",
-        videoUrl: "https://www.instagram.com/reel/CuVe8QhOVuZ/?utm_source=ig_embed&amp;utm_campaign=loading",
+    }),
+    createRecipe({
         title: "비빔장",
         chef: "day_momtable",
         category: "양념",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/CuVe8QhOVuZ.png",
+        videoUrl: "https://www.instagram.com/reel/CuVe8QhOVuZ/?utm_source=ig_embed&amp;utm_campaign=loading",
         sourceUrl: "",
         ingredients: [
             "",
@@ -2758,18 +2599,15 @@ export const recipes: Recipe[] = [
             "마늘 1T"
         ],
         steps: [
-            "",
-            ""
+            "비빔국수, 쫄면 등"
         ]
-    }
-    , {
-        id: "dish81",
-        imgUrl: "/images/sundryTomatoes.png",
-        videoUrl: "https://www.youtube.com/embed/U0rGG74epp0?si=2Wr5WPxXoCL6fWEJ",
+    }),
+    createRecipe({
         title: "썬드라이 토마토",
         chef: "마카롱여사",
         category: "재료",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/sundryTomatoes.png",
+        videoUrl: "https://www.youtube.com/watch?v=U0rGG74epp0?si=2Wr5WPxXoCL6fWEJ",
         sourceUrl: "",
         ingredients: [
             "방울토마토(대추방울이 사용) 1kg",
@@ -2787,15 +2625,13 @@ export const recipes: Recipe[] = [
             "말린 토마토는 식힘망에 식힌 다음 열탕소독한 병에 넣어 올리브오일을 가득 채워 냉장보관",
             "말린토마토는 샌드위치 또는 냉파스타 할때 사용"
         ]
-    }
-    , {
-        id: "dish82",
-        imgUrl: "/images/hazelnutBasilFesto.png",
-        videoUrl: "https://www.youtube.com/embed/U0rGG74epp0?si=2Wr5WPxXoCL6fWEJ&amp;start=72",
+    }),
+    createRecipe({
         title: "헤이즐넛 바질페스토",
         chef: "마카롱여사",
         category: "페스토",
-        typeList: "seasoningSauceJam",
+        imgUrl: "/images/hazelnutBasilFesto.png",
+        videoUrl: "https://www.youtube.com/watch?v=U0rGG74epp0?si=2Wr5WPxXoCL6fWEJ&amp;start=72",
         sourceUrl: "",
         ingredients: [
             "바질 300g",
@@ -2816,5 +2652,111 @@ export const recipes: Recipe[] = [
             "갈아놓은 치즈를 섞어준다.",
             "보관통에 담아 윗면에 올리브오일로 공기접촉을 막아 뚜껑 닫아 냉장 또는 냉동보관한다."
         ]
-    }
-];
+    }),
+    createRecipe({
+        title: "야채 + 비빔 + 만두 = 야비만두",
+        chef: "다름이네",
+        category: "간식",
+        imgUrl: "/images/DOIf-9VEh2P.png",
+        videoUrl: "",
+        sourceUrl: "https://www.instagram.com/p/DOIf-9VEh2P/",
+        ingredients: [
+            "만두",
+            "오이",
+            "양배추",
+            "적양배추",
+            "양파",
+            "깻잎"
+        ],
+        seasonings: [
+            "고추장 1",
+            "고춧가루 2",
+            "설탕 2",
+            "매실청 1",
+            "다진마늘 1",
+            "미림 2 ",
+            "식초 4",
+            "참기름 1",
+            "통깨 ✨"
+        ],
+        steps: [
+            "각종 야채는 채 썰어 준비",
+            "양념 재료 모두 넣어 양념장 만들기",
+            "만두 굽기",
+            "야채와 양념장 넣어 버무리기",
+            "플레이팅"
+        ]
+    }),
+    createRecipe({
+        title: "오리제육볶음",
+        chef: "이정현",
+        category: "복음",
+        imgUrl: "/images/DSMdIULEtYp.png",
+        videoUrl: "",
+        sourceUrl: "https://www.instagram.com/p/DSMdIULEtYp/",
+        ingredients: [
+            "오리",
+            "버섯",
+            "양파",
+            "부추",
+            "청주",
+            "청양고추",
+            "참나물"
+        ],
+        seasonings: [
+            "고추장 3T",
+            "간장 2T",
+            "설탕 3T",
+            "다진마늘 2T",
+            "고춧가루",
+            "굴소스(또는 굴액)"
+        ],
+        steps: [
+            "오리고기 손질 포인트: 수분/핏물은 키친타월로 톡",
+            "향 잡기: 청주 + 청양고추 넣고 잠깐 재우기",
+            "재운 뒤 나온 수분은 제거하고 양념에 버무리기",
+            "양파·대파 듬뿍 넣고 팬에 볶기",
+            "참나물 넣는 순간 향 폭발"
+        ]
+    }),
+    createRecipe({
+        title: "",
+        chef: "",
+        category: "",
+        imgUrl: "/images/sample.png",
+        videoUrl: "",
+        sourceUrl: "",
+        ingredients: [
+            "",
+            ""
+        ],
+        seasonings: [
+            "",
+            ""
+        ],
+        steps: [
+            "",
+            ""
+        ]
+    }),
+    createRecipe({
+        title: "",
+        chef: "",
+        category: "",
+        imgUrl: "/images/sample.png",
+        videoUrl: "",
+        sourceUrl: "",
+        ingredients: [
+            "",
+            ""
+        ],
+        seasonings: [
+            "",
+            ""
+        ],
+        steps: [
+            "",
+            ""
+        ]
+    }),
+] // export

@@ -5,7 +5,6 @@ export interface Recipe {
   title: string;
   chef: string;
   category: string;
-  typeList: string;
   sourceUrl: string;
   ingredients: string[];
   steps: string[];

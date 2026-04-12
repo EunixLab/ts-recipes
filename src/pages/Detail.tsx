@@ -20,6 +20,32 @@ export default function Detail() {
                 <div className="detail__overlay">
                     <h1>{recipe.title}</h1>
                     <p>{recipe.chef}</p>
+                    <div className="goto">
+                        {recipe.sourceUrl && (
+                            <a
+                                href={recipe.sourceUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src={import.meta.env.BASE_URL + "images/logo/instagram.webp"}
+                                    alt="instagram"
+                                />
+                            </a>
+                        )}
+                        {recipe.videoUrl && (
+                            <a
+                                href={recipe.videoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src={import.meta.env.BASE_URL + "images/logo/youtube-s.png"}
+                                    alt="youtube"
+                                />
+                            </a>
+                        )}
+                    </div>
                 </div>
             </div>
 

@@ -27,15 +27,35 @@
     width: 100%;
     padding: 1rem;
     background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
-  
     h1 {
       color: #fff;
       font-size: 24px;
     }
-  
     p {
       color: #ddd;
       font-size: 14px;
+    }
+    .goto {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      a {
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.2s;
+        &:hover {
+          @include scale(1.2);
+        }
+        img {
+          width: auto;
+          height: 2rem;
+        }
+        + a {
+          margin-left: 1rem;
+        }
+      }
     }
   }
 } //.detail__hero

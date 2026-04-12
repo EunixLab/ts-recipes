@@ -46,9 +46,33 @@
       left: 0;
       top: 0;
       right: 0;
+      min-height: 32px;
       padding: 4px 16px;
       color: $white;
       background-color: rgba($black, .4);
+    }
+    .goto {
+      position: absolute;
+      bottom: .5rem;
+      right: .5rem;
+      a {
+        display: inline-block;
+        line-height: 1;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.2s;
+        &:hover {
+          @include scale(1.2);
+        }
+        img {
+          width: auto;
+          height: 2rem;
+        }
+        + a {
+          margin-left: .5rem;
+        }
+      }
     }
   }
   .card-body {
