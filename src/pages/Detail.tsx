@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { recipes } from "@/data/recipes";
+import { useState } from "react";
 
 export default function Detail() {
     const { id } = useParams();
@@ -12,11 +13,19 @@ export default function Detail() {
     const imageSrc = recipe.imgUrl?.trim()
         ? import.meta.env.BASE_URL + recipe.imgUrl
         : import.meta.env.BASE_URL + "images/sample.png";
+    const [imgSrc, setImgSrc] = useState(imageSrc);
 
     return (
         <div className="recipe-detail">
             <div className="detail__hero">
-                <img src={imageSrc} />
+                <img
+                    src={imageSrc} 
+                    alt={recipe.title}
+                    onError={(e) => {
+                        e.currentTarget.onerror = null; // 무한루프 방지
+                        e.currentTarget.src = import.meta.env.BASE_URL + "images/sample.png";
+                    }}
+                />
                 <div className="detail__overlay">
                     <h1>{recipe.title}</h1>
                     <p>{recipe.chef}</p>

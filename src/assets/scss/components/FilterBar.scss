@@ -71,5 +71,8 @@
         color: #fff;
         font-weight: 500;
         }
+        &:empty {
+            display: none;
+        }
     }
 }

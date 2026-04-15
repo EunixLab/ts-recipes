@@ -19,6 +19,9 @@ export default function RecipeCard({ recipe }: Props) {
   : import.meta.env.BASE_URL + "images/sample.png";
 
   const [imgSrc, setImgSrc] = useState(imageSrc);
+
+  if (!recipe.title?.trim()) return null;
+
   return (
     <div
       className="recipe-card"
@@ -28,7 +31,10 @@ export default function RecipeCard({ recipe }: Props) {
         <img 
           src={imageSrc} 
           alt={recipe.title}
-          onError={() => setImgSrc("/images/sample.png")}
+          onError={(e) => {
+            e.currentTarget.onerror = null; // 무한루프 방지
+            e.currentTarget.src = import.meta.env.BASE_URL + "images/sample.png";
+          }}
         />
         <h3>{recipe.title}</h3>
         <div className="goto">
