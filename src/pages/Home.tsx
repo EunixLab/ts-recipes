@@ -12,6 +12,8 @@ type Filter = {
 };
 
 export default function Home() {
+  localStorage.setItem("recipes", JSON.stringify(recipes));
+
   const initialFilter: Filter = {
     category: null,
     chef: null,

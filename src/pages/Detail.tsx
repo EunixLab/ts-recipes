@@ -7,9 +7,10 @@ export default function Detail() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const recipe = recipes.find((r) => r.id === id);
-
-    if (!recipe) return <div>없음</div>;
+    const saved = JSON.parse(localStorage.getItem("recipes") || "[]");
+    const recipe = saved.find((r: any) => r.id === id);
+    if (!recipe) return <div className="nodata">레시피 없음</div>;
+    
     const imageSrc = recipe.imgUrl?.trim()
         ? import.meta.env.BASE_URL + recipe.imgUrl
         : import.meta.env.BASE_URL + "images/sample.png";
