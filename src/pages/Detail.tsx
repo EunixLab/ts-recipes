@@ -63,7 +63,7 @@ export default function Detail() {
             <section className="detail__section">
                 <h2>재료</h2>
                 <ul className="ingredients">
-                    {recipe.ingredients.map((item, index) => (
+                    {recipe.ingredients?.map((item: string, index: number) => (
                         <li key={index}>{item}</li>
                     ))}
                 </ul>
@@ -72,7 +72,7 @@ export default function Detail() {
             <section className="detail__section">
                 <h2>양념</h2>
                 <ul className="seasonings">
-                    {recipe.seasonings?.map((item, index) => (
+                    {recipe.seasonings?.map((item: string, index: number) => (
                         <li key={index}>{item}</li>
                     ))}
                 </ul>
@@ -80,7 +80,7 @@ export default function Detail() {
 
             <section className="detail__section">
                 <h2>조리 방법</h2>
-                {recipe.steps.map((step, idx) => (
+                {recipe.steps?.map((step: string, idx: number) => (
                     <div key={idx} className="step">
                         <span>{idx + 1}</span>
                         <p>{step}</p>
