@@ -16,6 +16,17 @@ export default function Detail() {
         : import.meta.env.BASE_URL + "images/sample.png";
     const [imgSrc, setImgSrc] = useState(imageSrc);
 
+    const ingredients = recipe.ingredients?.filter(
+        (item: string) => item.trim() !== ""
+    );
+    const seasonings = recipe.seasonings?.filter(
+        (item: string) => item.trim() !== ""
+    );
+    const steps = recipe.steps?.filter(
+        (item: string) => item.trim() !== ""
+    );
+
+
     return (
         <div className="recipe-detail">
             <div className="detail__hero">
@@ -58,9 +69,8 @@ export default function Detail() {
                     </div>
                 </div>
             </div>
-
             
-            <section className="detail__section">
+            {/* <section className="detail__section">
                 <h2>재료</h2>
                 <ul className="ingredients">
                     {recipe.ingredients?.map((item: string, index: number) => (
@@ -86,8 +96,43 @@ export default function Detail() {
                         <p>{step}</p>
                     </div>
                 ))}
+            </section> */}
 
-            </section>
+
+            {ingredients && ingredients.length > 0 && (
+                <section className="detail__section">
+                    <h2>재료</h2>
+                    <ul className="ingredients">
+                    {ingredients.map((item: string, index: number) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                    </ul>
+                </section>
+            )}
+
+            {seasonings && seasonings.length > 0 && (
+                <section className="detail__section">
+                    <h2>양념</h2>
+                    <ul className="seasonings">
+                    {seasonings.map((item: string, index: number) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                    </ul>
+                </section>
+            )}
+
+
+            {steps && steps.length > 0 && (
+                <section className="detail__section">
+                    <h2>조리 방법</h2>
+                    {steps.map((step: string, idx: number) => (
+                    <div key={idx} className="step">
+                        <span>{idx + 1}</span>
+                        <p>{step}</p>
+                    </div>
+                    ))}
+                </section>
+            )}
 
             <button type="button" className="detail__back" onClick={() => navigate(-1)}>← 뒤로가기</button>
 
